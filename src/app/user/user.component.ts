@@ -9,13 +9,9 @@ import {
   signal,
 } from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
+import { type User } from './user.model';
 
 const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
-type User = {
-  id: string;
-  name: string;
-  avatar: string;
-};
 
 @Component({
   selector: 'app-user',
@@ -31,6 +27,7 @@ export class UserComponent {
   // avatar = input<string>();
   // name = input<string>();
   @Input({ required: true }) user!: User;
+  @Input({ required: true }) selected!: boolean;
   //#with required  (below on are signal)
   //   avatar = input.required<string>();
   //   name = input.required<string>();
